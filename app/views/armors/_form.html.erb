@@ -1,0 +1,57 @@
+<%= form_with(model: armor) do |form| %>
+  <% if armor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(armor.errors.count, "error") %> prohibited this armor from being saved:</h2>
+
+      <ul>
+        <% armor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :armor %>
+    <%= form.text_field :armor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :concealment %>
+    <%= form.text_field :concealment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :speed %>
+    <%= form.text_field :speed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dodge %>
+    <%= form.text_field :dodge %>
+  </div>
+
+  <div class="field">
+    <%= form.label :steadiness %>
+    <%= form.text_field :steadiness %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stamina %>
+    <%= form.text_field :stamina %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :armorCategory %>
+    <%= form.text_field :armorCategory %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

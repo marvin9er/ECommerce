@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @armor_category.name %>
+</p>
+
+<p>
+  <strong>Categoryid:</strong>
+  <%= @armor_category.categoryId %>
+</p>
+
+<%= link_to 'Edit', edit_armor_category_path(@armor_category) %> |
+<%= link_to 'Back', armor_categories_path %>
