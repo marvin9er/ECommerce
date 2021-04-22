@@ -1,8 +1,0 @@
-<div class="armor">
-  <h2><%= link_to armor.name, armor %></h2>
-  <div>
-    <p><%= image_tag armor.image, alt:armor.name%></p>
-    <p><strong>Armor Category: </strong><%= armor.armorCategory.name %></p>
-    <p><strong>Price: </strong><%= ActiveSupport::NumberHelper.number_to_currency(armor.price) %></p>
-  </div>
-</div>
