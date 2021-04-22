@@ -13,3 +13,175 @@
  *= require_tree .
  *= require_self
  */
+
+img {
+  background-color: black;
+  width: 300px;
+  height: auto;
+}
+
+body {
+  background-image: url("background.jpg");
+
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a:visited {
+  color: white;
+}
+
+.dropdown-content a:visited {
+  color: black;
+}
+
+.dropdown-content a:visited:hover {
+  color: white;
+}
+
+a:hover {
+  background-color: transparent;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.armor, .productShow, .blue{
+  background-color: rgba(0, 184, 245, 0.90);
+  padding: 5px;
+
+}
+
+.productShow {
+  padding: 70px 35%;
+  text-align: center;
+  align-self: center;
+}
+
+.armor a, .productShow a {
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.armor {
+  width: min-content;
+  margin: 0px 5px 10px 5px;
+  padding: 0px 10px 0px 10px;
+  line-height: normal;
+  text-align: center;
+}
+
+
+
+.Columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: .6vw;
+}
+
+.blue {
+  text-align: center;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a{
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar form{
+  color: white;
+  display: inline-flex;
+  float: right;
+  padding-top: 5px;
+}
+
+.navbar form input {
+  margin-right: 10px;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn:hover{
+  background-color: rgb(11, 153, 201);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(11, 153, 201);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.mainName:link, .mainName:visited, .link:visited, .link:hover, .blue h1{
+  font-weight: bold;
+  -webkit-text-stroke: 2px black;
+
+  color: rgb(228, 214, 22);
+  text-decoration: none;
+}
+
+.description {
+  font-size: x-large;
+  line-height: normal;
+  text-align: center;
+}
+
+h2 {
+  color: black;
+  font-weight: bold;
+}
+
+
+
