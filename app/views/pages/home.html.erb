@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="bg-image"></div>
+
+<h1><%= link_to "Crime.net", root_path, class: 'mainName' %></h1>
+
+
+<div class="navbar">
+  <%= link_to "Home", root_path %>
+  <%= link_to "About", "../about"%>
+  <%= link_to "Contact", "../contact"%>
+  <div class="dropdown">
+    <h3 class="dropbtn">Armors
+      <i class="fa fa-caret-down"></i>
+    </h3>
+    <div class="dropdown-content">
+      <a href="armors">All</a>
+      <% @armor_categories.each do |armor_category| %>
+        <a href="armors?filter=<%=armor_category.id%>"><%=armor_category.name%></a>
+      <% end %>
+    </div>
+  </div>
+  <%= form_with url: search_results_armors_path, method: :get do |form| %>
+    <%= form.select :category, [["All", nil], [@armor_categories[0].name, @armor_categories[0].id], [@armor_categories[1].name, @armor_categories[1].id], [@armor_categories[2].name, @armor_categories[2].id], [@armor_categories[3].name, @armor_categories[3].id]] %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search" %>
+  <% end %>
+</div>
+
+
+<div class="blue">
+  <br>
+  <h1>Products on sale now.</h1>
+
+  <div class="Columns">
+      <%= render @armors%>
+  </div>
+</div>
+
+
+
+
+
+
