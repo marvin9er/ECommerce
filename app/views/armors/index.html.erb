@@ -1,41 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Armors</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<table>
-  <thead>
-    <tr>
-      <th>Armor</th>
-      <th>Concealment</th>
-      <th>Speed</th>
-      <th>Dodge</th>
-      <th>Steadiness</th>
-      <th>Stamina</th>
-      <th>Description</th>
-      <th>Armorcategory</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @armors.each do |armor| %>
-      <tr>
-        <td><%= armor.armor %></td>
-        <td><%= armor.concealment %></td>
-        <td><%= armor.speed %></td>
-        <td><%= armor.dodge %></td>
-        <td><%= armor.steadiness %></td>
-        <td><%= armor.stamina %></td>
-        <td><%= armor.description %></td>
-        <td><%= armor.armorCategory %></td>
-        <td><%= link_to 'Show', armor %></td>
-        <td><%= link_to 'Edit', edit_armor_path(armor) %></td>
-        <td><%= link_to 'Destroy', armor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1><%= link_to "Crime.net", root_path, class: 'mainName' %></h1>
 
-<br>
+<div class="navbar">
+  <%= link_to "Home", root_path %>
+  <%= link_to "About", "../about"%>
+  <%= link_to "Contact", "../contact"%>
+  <div class="dropdown">
+    <h3 class="dropbtn">Armors
+      <i class="fa fa-caret-down"></i>
+    </h3>
+    <div class="dropdown-content">
+      <a href="../armors">All</a>
+      <% @armor_categories.each do |armor_category| %>
+        <a href="?filter=<%=armor_category.id%>"><%=armor_category.name%></a>
+      <% end %>
+    </div>
+  </div>
+  <%= form_with url: search_results_armors_path, method: :get do |form| %>
+    <%= form.select :category, [["All", nil], [@armor_categories[0].name, @armor_categories[0].id], [@armor_categories[1].name, @armor_categories[1].id], [@armor_categories[2].name, @armor_categories[2].id], [@armor_categories[3].name, @armor_categories[3].id]] %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search" %>
+  <% end %>
+</div>
+<div class = "blue">
+  <br>
 
-<%= link_to 'New Armor', new_armor_path %>
+  <%= render_breadcrumbs %>
+
+  <br>
+  <br>
+
+  <div class="Columns">
+    <%= render @armors%>
+  </div>
+</div>
