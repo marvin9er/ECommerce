@@ -1,44 +1,93 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Armor:</strong>
-  <%= @armor.armor %>
-</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<p>
-  <strong>Concealment:</strong>
-  <%= @armor.concealment %>
-</p>
 
-<p>
-  <strong>Speed:</strong>
-  <%= @armor.speed %>
-</p>
+<h1><%= link_to "Crime.net", root_path, class: 'mainName' %></h1>
 
-<p>
-  <strong>Dodge:</strong>
-  <%= @armor.dodge %>
-</p>
+<div class="navbar">
+  <%= link_to "Home", root_path %>
+  <%= link_to "About", "../about"%>
+  <%= link_to "Contact", "../contact"%>
+  <div class="dropdown">
+    <h3 class="dropbtn">Armors
+      <i class="fa fa-caret-down"></i>
+    </h3>
+    <div class="dropdown-content">
+      <a href="armors">All</a>
+      <% @armor_categories.each do |armor_category| %>
+        <a href="?filter=<%=armor_category.id%>"><%=armor_category.name%></a>
+      <% end %>
+    </div>
+  </div>
+  <%= form_with url: search_results_armors_path, method: :get do |form| %>
+    <%= form.select :category, [["All", nil], [@armor_categories[0].name, @armor_categories[0].id], [@armor_categories[1].name, @armor_categories[1].id], [@armor_categories[2].name, @armor_categories[2].id], [@armor_categories[3].name, @armor_categories[3].id]] %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search" %>
+  <% end %>
+</div>
+<div class = "productShow">
+  <br>
 
-<p>
-  <strong>Steadiness:</strong>
-  <%= @armor.steadiness %>
-</p>
+  <%= render_breadcrumbs %>
 
-<p>
-  <strong>Stamina:</strong>
-  <%= @armor.stamina %>
-</p>
+  <br>
 
-<p>
-  <strong>Description:</strong>
-  <%= @armor.description %>
-</p>
+  <p>
+    <h1><strong><%= @armor.name %></strong></h1>
+  </p>
 
-<p>
-  <strong>Armorcategory:</strong>
-  <%= @armor.armorCategory %>
-</p>
+  <p>
+    <strong>Armor:</strong>
+    <%= @armor.armor %>
+  </p>
 
-<%= link_to 'Edit', edit_armor_path(@armor) %> |
-<%= link_to 'Back', armors_path %>
+
+  <%if @armor.image.present?%>
+    <p>
+      <P><%= image_tag @armor.image%></P>
+    </p>
+  <%end%>
+
+  <p>
+    <strong>Concealment:</strong>
+    <%= @armor.concealment %>
+  </p>
+
+  <p>
+    <strong>Speed:</strong>
+    <%= @armor.speed %>
+  </p>
+
+  <p>
+    <strong>Dodge:</strong>
+    <%= @armor.dodge %>
+  </p>
+
+  <p>
+    <strong>Steadiness:</strong>
+    <%= @armor.steadiness %>
+  </p>
+
+  <p>
+    <strong>Stamina:</strong>
+    <%= @armor.stamina %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @armor.description %>
+  </p>
+
+  <p>
+    <strong>Armorcategory:</strong>
+    <%= @armor.armorCategory.name %>
+  </p>
+
+  <p>
+    <strong>Price</strong>
+    <%= ActiveSupport::NumberHelper.number_to_currency(@armor.price)%>
+  </p>
+
+  <%= link_to 'Back', :back %>
+</div>
