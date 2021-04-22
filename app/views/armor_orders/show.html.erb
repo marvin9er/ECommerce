@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @armor_order.order_id %>
+</p>
+
+<p>
+  <strong>Armor:</strong>
+  <%= @armor_order.armor_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @armor_order.price %>
+</p>
+
+<%= link_to 'Edit', edit_armor_order_path(@armor_order) %> |
+<%= link_to 'Back', armor_orders_path %>
